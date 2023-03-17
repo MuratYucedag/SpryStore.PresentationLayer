@@ -3,6 +3,10 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using SpryStore.BusinessLayer.Abstract;
+using SpryStore.BusinessLayer.Concrete;
+using SpryStore.DataAccessLayer.Abstract;
+using SpryStore.DataAccessLayer.EntityFramework;
 
 namespace SpryStore.PresentationLayer
 {
@@ -18,7 +22,12 @@ namespace SpryStore.PresentationLayer
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //Konfigürasyonlar Yazýlacak
+            services.AddScoped<ICategoryDal, EfCategoryDal>();
+            services.AddScoped<ICategoryService, CategoryManager>();
+
+            services.AddScoped<IProductDal, EfProductDal>();
+            services.AddScoped<IProductService, ProductManager>();
+
             services.AddControllersWithViews();
         }
 
@@ -46,7 +55,7 @@ namespace SpryStore.PresentationLayer
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Category}/{action=Index}/{id?}");
             });
         }
     }

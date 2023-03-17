@@ -19,7 +19,6 @@ namespace SpryStore.BusinessLayer.Concrete
         public void TDelete(Category t)
         {
             _categoryDal.Delete(t);
-
         }
 
         public Category TGetByID(int id)
