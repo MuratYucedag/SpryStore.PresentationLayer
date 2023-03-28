@@ -1,0 +1,23 @@
+﻿@model Message
+@{
+    ViewData["Title"] = "SendMessage";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<h1>Yeni Mesaj Sayfası</h1>
+<br />
+<form method="post">
+    <label>Alıcı Adı</label>
+    <input type="text" class="form-control" asp-for="ReceiverName" />
+    <br />
+    <label>Alıcı Mail</label>
+    <input type="text" class="form-control" asp-for="ReceiverMail" />
+    <br />
+    <label>Konu</label>
+    <input type="text" class="form-control" asp-for="Subject" />
+    <br />
+    <label>Mesajınızı Yazınız</label>
+    <textarea class="form-control" rows="5" placeholder="Mesajı Buraya Yazabilirsiniz" asp-for="Content"></textarea>
+    <br />
+    <button class="btn btn-info">Mesajı Gönder</button>
+</form>

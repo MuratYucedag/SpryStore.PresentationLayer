@@ -1,0 +1,71 @@
+﻿@model List<Product>
+
+@{
+    Layout = "~/Areas/Catalog/Views/Layout/_CatalogLayout.cshtml";
+}
+<div class="page-heading products-heading header-text">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="text-content">
+                    <h4>Son Gelen Ürünler</h4>
+                    <h2>Binlerce Ürün Uygun Fiyata</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="products">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="filters">
+                    <ul>
+                        <li class="active" data-filter="*">Tüm Ürünleer</li>
+                        <li data-filter=".des">Kampanyalılar</li>
+                        <li data-filter=".dev">Günün Fırsatları</li>
+                        <li data-filter=".gra">En Beğenilenler</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="filters-content">
+                    <div class="row grid">
+                        @foreach (var item in Model)
+                        {
+                        <div class="col-lg-4 col-md-4 all des">
+                            <div class="product-item">
+                                <a href="#"><img src="@item.Image" alt=""></a>
+                                <div class="down-content">
+                                    <a href="#"><h4>@item.ProductName</h4></a>
+                                    <h6>@item.Price ₺</h6>
+                                    <p>@item.Description.Substring(0,75)...</p>
+                                    <ul class="stars">
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                    </ul>
+                                    <span>Değerlendirmeler (12)</span>
+                                </div>
+                            </div>
+                        </div>
+                        }
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <ul class="pages">
+                    <li><a href="#">1</a></li>
+                    <li class="active"><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#"><i class="fa fa-angle-double-right"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

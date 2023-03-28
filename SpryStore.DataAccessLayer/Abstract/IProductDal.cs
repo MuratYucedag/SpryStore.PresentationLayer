@@ -9,5 +9,6 @@ namespace SpryStore.DataAccessLayer.Abstract
 {
     public interface IProductDal : IGenericDal<Product>
     {
+        List<Product> GetProductListWithCategory();
     }
 }

@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<title>W3.CSS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<body>
+
+    <div class="w3-container">
+        <h2>İstatikler</h2>
+        <p>Admin Paneli İstatistik Sayfası</p>
+    </div>
+</body>
+</html>
+
+<div class="w3-panel w3-card"><p>Kategori Sayısı: @ViewBag.categoryCount</p></div>
+<div class="w3-panel w3-card-2"><p>Ürün Sayısı: @ViewBag.productCount</p></div>
+<div class="w3-panel w3-card-2"><p>Elektronik Kategorisi Ürün Sayısı: @ViewBag.productCountByElectronic</p></div>
+<div class="w3-panel w3-card-2"><p>Fiyatı 5000 TL'nin Altında Olan Ürün Sayısı: @ViewBag.priceUnder5000</p></div>
+<div class="w3-panel w3-card-2"><p>Ortalama Ürün Fiyatı: @ViewBag.avgPrice</p></div>

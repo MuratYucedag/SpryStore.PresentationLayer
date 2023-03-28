@@ -32,6 +32,11 @@ namespace SpryStore.BusinessLayer.Concrete
             return _productDal.GetList();
         }
 
+        public List<Product> TGetProductListWithCategory()
+        {
+            return _productDal.GetProductListWithCategory();
+        }
+
         public void TInsert(Product t)
         {
             if (t.ProductName != "" && t.ProductName.Length >= 5 && t.ProductName.Length <= 20)

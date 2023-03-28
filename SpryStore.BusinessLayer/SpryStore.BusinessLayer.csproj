@@ -28,7 +28,6 @@
     <Folder Include="Logging\" />
     <Folder Include="Extensions\" />
     <Folder Include="ErrorMessage\" />
-    <Folder Include="ValidationRules\" />
   </ItemGroup>
 
 </Project>

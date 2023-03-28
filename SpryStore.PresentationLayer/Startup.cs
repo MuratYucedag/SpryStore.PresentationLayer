@@ -28,6 +28,9 @@ namespace SpryStore.PresentationLayer
             services.AddScoped<IProductDal, EfProductDal>();
             services.AddScoped<IProductService, ProductManager>();
 
+            services.AddScoped<IContactDal, EfContactDal>();
+            services.AddScoped<IContactService, ContactManager>();
+
             services.AddControllersWithViews();
         }
 
@@ -57,6 +60,15 @@ namespace SpryStore.PresentationLayer
                     name: "default",
                     pattern: "{controller=Category}/{action=Index}/{id?}");
             });
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllerRoute(
+                  name: "areas",
+                  pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+                );
+            });
+
         }
     }
 }

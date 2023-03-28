@@ -1,10 +1,9 @@
 ﻿@model List<Product>
 @{
     ViewData["Title"] = "Index";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
 
 }
-
 <table class="table table-bordered">
     <tr>
         <th>#</th>
@@ -17,30 +16,15 @@
     </tr>
     @foreach (var item in Model)
     {
-<tr>
-    <td>@item.ProductID</td>
-    <td>@item.ProductName</td>
-    <td>@item.Price ₺</td>
-    @if (item.CategoryID == 1)
-    {
-        <td class="text-info">Elektronik</td>
-    }
-    @if (item.CategoryID == 2)
-    {
-        <td class="text-success">Kıyafet</td>
-    }
-    @if (item.CategoryID == 3)
-    {
-        <td class="text-warning">Oyuncak</td>
-    }
-    @if (item.CategoryID == 4)
-    {
-        <td class="text-dark">Bilgisayar</td>
-    }
-    <td><a href="#" class="btn btn-outline-danger">Sil</a></td>
-    <td><a href="#" class="btn btn-outline-success">Güncelle</a></td>
-    <td><a href="#" class="btn btn-outline-dark">Detaylar</a></td>
-</tr>
+        <tr>
+            <td>@item.ProductID</td>
+            <td>@item.ProductName</td>
+            <td>@item.Price ₺</td>
+            <td>@item.Category.CategoryName</td>
+            <td><a href="#" class="btn btn-outline-danger">Sil</a></td>
+            <td><a href="#" class="btn btn-outline-success">Güncelle</a></td>
+            <td><a href="#" class="btn btn-outline-dark">Detaylar</a></td>
+        </tr>
     }
 </table>
-<a href="#" class="btn btn-outline-info">Yeni Ürün Girişi</a>
+<a href="/Product/AddProduct/" class="btn btn-outline-info">Yeni Ürün Girişi</a>
